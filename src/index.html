@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>DRY.FM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="teminal.js"></script>
+	</head>
+
+	<body>
+		<div id="terminal"></div>
+		<div id="overlay"></div>
+	</body>
+</html>
+
+<script>
+	let t = new Terminal('terminal')
+	let overlayDiv = document.querySelector('div#overlay')
+
+	window.onload = async () => {
+		await t.sleep(500)
+		await t.print('connecting...')
+		await t.sleep(2000)
+		await t.clear()
+		await t.print('<span class="logo">DRY.FM</span>', true)
+		await t.println()
+		await t.sleep(2000)
+		await t.println()
+		await t.println('Welcome at DRY.FM!')
+		await t.println()
+		await t.println(
+			'DRY.FM is an independent electronic music label based in Cottbus, Germany.'
+		)
+
+		await t.println()
+		await t.println(
+			'This service is experimental and not available at the moment. Sorry for any inconvenience this may cause.'
+		)
+		await t.println()
+
+		await t.print('Please follow us on [')
+		await t.printLink('1', '1', async (e) => {
+			await t.println('1')
+			await t.println()
+			await t.print('Loading FaceBook...')
+			overlayDiv.classList.add('facebook')
+			await t.sleep(2000)
+			window.location.href = 'https://www.facebook.com/dryfm'
+		})
+		await t.print('] FaceBook, [')
+		await t.printLink('2', '2', async (e) => {
+			await t.println('2')
+			await t.println()
+			await t.print('Loading Instagram...')
+			overlayDiv.classList.add('instagram')
+			await t.sleep(2000)
+			window.location.href = 'https://www.instagram.com/dry.fm_official'
+		})
+		await t.print('] Instagram or [')
+		await t.printLink('3', '3', async (e) => {
+			await t.println('3')
+			await t.println()
+			await t.print('Loading Twitter...')
+			overlayDiv.classList.add('twitter')
+			await t.sleep(2000)
+			window.location.href = 'https://www.twitter.com/dryfm_official'
+		})
+		await t.println('] Twitter.')
+		await t.println()
+		await t.print('Your choice: ')
+	}
+</script>
