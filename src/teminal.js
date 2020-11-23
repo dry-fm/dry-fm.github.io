@@ -9,8 +9,8 @@ class Terminal {
 		this.innerDomElement = document.createElement('span')
 		this.outerDomElement.appendChild(this.innerDomElement)
 
-		this.printSpeed = 20
-		this.printSpeedSpace = 100
+		this.printSpeed = 5
+		this.printSpeedSpace = 20
 	}
 
 	sleep(milliseconds) {
