@@ -6,69 +6,64 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="-1" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script src="teminal.js"></script>
 	</head>
 
 	<body>
-		<div id="terminal"></div>
+		<div id="terminal">
+			<span>
+				<span class="logo">DRY.FM</span><br /><br />
+				DRY.FM is an independent electronic music label based in Cottbus,
+				Germany. <br /><br />We &#10084;
+				<span class="blink inverse">TECHNO</span>. Please follow us on [<a
+					onclick="fbLink()"
+					>1</a
+				>] FaceBook, [<a onclick="instaLink()">2</a>] Instagram or [<a
+					onclick="twitterLink()"
+					>3</a
+				>] Twitter.<br /><br />Your choice:
+			</span>
+		</div>
 		<div id="overlay"></div>
 	</body>
+
+	<script>
+		let textElement = document.querySelector('#terminal span')
+		let overlayElement = document.getElementById('overlay')
+
+		document.addEventListener('keypress', (e) => {
+			switch (e.key) {
+				case '1':
+					fbLink()
+					break
+				case '2':
+					instaLink()
+					break
+				case '3':
+					twitterLink()
+					break
+			}
+		})
+
+		function fbLink() {
+			textElement.insertAdjacentHTML('beforeend', '1<br />Loading Facebook...')
+			overlayElement.classList.add('facebook')
+			setTimeout(() => {
+				location.href = 'https://www.facebook.com/dry.fm'
+			}, 3000)
+		}
+		function instaLink() {
+			textElement.insertAdjacentHTML('beforeend', '2<br />Loading Instagram...')
+			overlayElement.classList.add('instagram')
+			setTimeout(() => {
+				location.href = 'http://www.instagram.com/dry.fm_official'
+			}, 3000)
+		}
+		function twitterLink() {
+			textElement.insertAdjacentHTML('beforeend', '3<br />Loading Twitter...')
+			overlayElement.classList.add('twitter')
+			setTimeout(() => {
+				location.href = 'http://www.twitter.com/dryfm_official'
+			}, 3000)
+		}
+	</script>
 </html>
-<!-- Test-->
-<script>
-	let t = new Terminal('terminal')
-	let overlayDiv = document.querySelector('div#overlay')
-
-	window.onload = async () => {
-		await t.sleep(500)
-		await t.print('connecting...')
-		await t.sleep(2000)
-		await t.clear()
-		await t.print('<span class="logo">DRY.FM</span>', true)
-		await t.println()
-		await t.sleep(2000)
-		await t.println()
-		await t.println('Welcome at DRY.FM!')
-		await t.println()
-		await t.println(
-			'DRY.FM is an independent electronic music label based in Cottbus, Germany.'
-		)
-
-		await t.println()
-		await t.println(
-			'This service is experimental and not available at the moment. Sorry for any inconvenience this may cause.'
-		)
-		await t.println()
-
-		await t.print('Please follow us on [')
-		await t.printLink('1', '1', async (e) => {
-			await t.println('1')
-			await t.println()
-			await t.print('Loading FaceBook...')
-			overlayDiv.classList.add('facebook')
-			await t.sleep(2000)
-			window.location.href = 'https://www.facebook.com/dryfm'
-		})
-		await t.print('] FaceBook, [')
-		await t.printLink('2', '2', async (e) => {
-			await t.println('2')
-			await t.println()
-			await t.print('Loading Instagram...')
-			overlayDiv.classList.add('instagram')
-			await t.sleep(2000)
-			window.location.href = 'https://www.instagram.com/dry.fm_official'
-		})
-		await t.print('] Instagram or [')
-		await t.printLink('3', '3', async (e) => {
-			await t.println('3')
-			await t.println()
-			await t.print('Loading Twitter...')
-			overlayDiv.classList.add('twitter')
-			await t.sleep(2000)
-			window.location.href = 'https://www.twitter.com/dryfm_official'
-		})
-		await t.println('] Twitter.')
-		await t.println()
-		await t.print('Your choice: ')
-	}
-</script>

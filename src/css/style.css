@@ -123,13 +123,13 @@ body {
 #terminal > span::after {
 	content: ' ';
 	white-space: pre;
-	animation: cursorblink 2s infinite ease-in;
+	animation: blink 2s infinite ease-in;
 	background: rgba(0, 192, 0, 0.8);
 	box-shadow: 0px 0px 4px #060;
 	border-radius: 1px;
 }
 
-@keyframes cursorblink {
+@keyframes blink {
 	0% {
 		opacity: 1;
 	}
@@ -149,16 +149,7 @@ body {
 }
 
 .blink {
-	animation: blink 1s linear infinite;
-}
-
-@keyframes blink {
-	0% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
+	animation: 2s blink infinite ease-in;
 }
 
 .inverse {
@@ -168,7 +159,7 @@ body {
 
 .logo {
 	font-family: 'Exo2', sans-serif;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	animation: logoOn 2s linear forwards;
 }
 
