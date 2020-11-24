@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="de">
+	<head>
+		<title>DRY.FM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+		<div id="terminal">
+			<span>
+				<span class="logo">DRY.FM</span><br /><br />
+				DRY.FM is an independent electronic music label based in Cottbus,
+				Germany. <br /><br />We &#10084;
+				<span class="blink inverse">TECHNO</span>. Please follow us on [<a
+					onclick="fbLink()"
+					>1</a
+				>] FaceBook, [<a onclick="instaLink()">2</a>] Instagram or [<a
+					onclick="twitterLink()"
+					>3</a
+				>] Twitter.<br /><br />Your choice:
+			</span>
+		</div>
+		<div id="overlay"></div>
+	</body>
+
+	<script>
+		let textElement = document.querySelector('#terminal span')
+		let overlayElement = document.getElementById('overlay')
+
+		document.addEventListener('keypress', (e) => {
+			switch (e.key) {
+				case '1':
+					fbLink()
+					break
+				case '2':
+					instaLink()
+					break
+				case '3':
+					twitterLink()
+					break
+			}
+		})
+
+		function fbLink() {
+			textElement.insertAdjacentHTML('beforeend', '1<br />Loading Facebook...')
+			overlayElement.classList.add('facebook')
+			setTimeout(() => {
+				location.href = 'https://www.facebook.com/dry.fm'
+			}, 3000)
+		}
+		function instaLink() {
+			textElement.insertAdjacentHTML('beforeend', '2<br />Loading Instagram...')
+			overlayElement.classList.add('instagram')
+			setTimeout(() => {
+				location.href = 'http://www.instagram.com/dry.fm_official'
+			}, 3000)
+		}
+		function twitterLink() {
+			textElement.insertAdjacentHTML('beforeend', '3<br />Loading Twitter...')
+			overlayElement.classList.add('twitter')
+			setTimeout(() => {
+				location.href = 'http://www.twitter.com/dryfm_official'
+			}, 3000)
+		}
+	</script>
+</html>
