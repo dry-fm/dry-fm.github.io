@@ -160,16 +160,6 @@ body {
 .logo {
 	font-family: 'Exo2', sans-serif;
 	font-size: 1.5rem;
-	animation: logoOn 2s linear forwards;
-}
-
-@keyframes logoOn {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
 }
 
 #overlay {
