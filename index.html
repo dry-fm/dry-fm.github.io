@@ -22,7 +22,7 @@
 				DRY.FM is a music studio based in Cottbus,
 				Germany. <br /><br />We &#10084;
 				<span class="blink inverse">TECHNO</span>. Please follow us on [<a
-					onclick="fbLink()"
+					onclick="scLink()"
 					>1</a
 				>] SoundCloud or [<a onclick="instaLink()">2</a>] Instagram<br /><br />Your choice:
 			</span>
@@ -53,7 +53,7 @@
 			}, 3000)
 		}
 		function scLink() {
-			textElement.insertAdjacentHTML('beforeend', '3<br />Loading SoundCloud...')
+			textElement.insertAdjacentHTML('beforeend', '1<br />Loading SoundCloud...')
 			overlayElement.classList.add('soundcloud')
 			setTimeout(() => {
 				location.href = 'https://soundcloud.com/dryfm'
