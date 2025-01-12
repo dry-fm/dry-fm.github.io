@@ -16,15 +16,12 @@
 		<div id="terminal">
 			<span>
 				<span class="logo">DRY.FM</span><br /><br />
-				DRY.FM is an independent electronic music label based in Cottbus,
+				DRY.FM is a music studio based in Cottbus,
 				Germany. <br /><br />We &#10084;
 				<span class="blink inverse">TECHNO</span>. Please follow us on [<a
 					onclick="fbLink()"
 					>1</a
-				>] FaceBook, [<a onclick="instaLink()">2</a>] Instagram or [<a
-					onclick="twitterLink()"
-					>3</a
-				>] Twitter.<br /><br />Your choice:
+				>] SoundCloud or [<a onclick="instaLink()">2</a>] Instagram<br /><br />Your choice:
 			</span>
 		</div>
 		<div id="overlay"></div>
@@ -37,36 +34,26 @@
 		document.addEventListener('keypress', (e) => {
 			switch (e.key) {
 				case '1':
-					fbLink()
+					scLink()
 					break
 				case '2':
 					instaLink()
 					break
-				case '3':
-					twitterLink()
-					break
 			}
 		})
 
-		function fbLink() {
-			textElement.insertAdjacentHTML('beforeend', '1<br />Loading Facebook...')
-			overlayElement.classList.add('facebook')
-			setTimeout(() => {
-				location.href = 'https://www.facebook.com/dry.fm'
-			}, 3000)
-		}
 		function instaLink() {
 			textElement.insertAdjacentHTML('beforeend', '2<br />Loading Instagram...')
 			overlayElement.classList.add('instagram')
 			setTimeout(() => {
-				location.href = 'http://www.instagram.com/dry.fm_official'
+				location.href = 'http://www.instagram.com/dry.fm_music'
 			}, 3000)
 		}
-		function twitterLink() {
-			textElement.insertAdjacentHTML('beforeend', '3<br />Loading Twitter...')
-			overlayElement.classList.add('twitter')
+		function scLink() {
+			textElement.insertAdjacentHTML('beforeend', '3<br />Loading SoundCloud...')
+			overlayElement.classList.add('soundcloud')
 			setTimeout(() => {
-				location.href = 'http://www.twitter.com/dryfm_official'
+				location.href = 'https://soundcloud.com/dryfm'
 			}, 3000)
 		}
 	</script>
